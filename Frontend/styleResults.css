@@ -1,0 +1,79 @@
+body{
+    display: block;
+    font-family: arial,sans-serif;
+    font-size: 14px;
+    min-height: 100%;
+}
+
+.header{
+    width: auto;
+    padding: 0;
+    margin: 0;
+    height: 100px;
+}
+
+#logo{
+    width: 95px;
+    position: absolute;
+    left: 20px;
+    top: 25px;
+
+}
+
+#text{
+    position: absolute;
+    margin: 20px 0px;
+    margin-left: 150px;
+
+    border-radius: 25px;
+    border-color: #CCC;
+    padding-left: 15px;
+    width: 670px;
+
+    height: 42px;
+    line-height: 39px;
+    border: transparent;
+    box-shadow: 1px 1px 3px gray;
+
+}
+
+#text:focus{
+    outline: none;
+    box-shadow: 1px 1px 5px gray;
+}
+
+#text:hover{
+    
+    box-shadow: 1px 1px 5px gray;
+}
+
+#hrEncabezado{
+    display: block;
+}
+
+.results{
+    height: 100%;
+    position: absolute;
+    left: 100px;
+    width: 750px;
+    
+}
+
+.total-results{
+    color: #70757a
+}
+
+.notice{
+
+    margin: 0px 0px 30px 0px;
+}
+
+
+.results h3{
+    color: #1a0dab;
+    margin: 8px 0;
+}
+
+.notice span{
+    width: 100%;
+}
