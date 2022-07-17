@@ -3,6 +3,7 @@ package com.cursojavaavanzado.cursojavaavanzado.controllers;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,6 +19,7 @@ public class SearchController {
 	@Autowired
 	private SearchServicies service; 
 	
+	//@CrossOrigin("*") //Para que no haya error de CORS, (cuando la URL especificada desde la vista no existe)
 	@RequestMapping(value = "api/search", method = RequestMethod.GET)
 	public List<WebPage> search(@RequestParam Map<String,String> params) {
 		String query = params.get("query");

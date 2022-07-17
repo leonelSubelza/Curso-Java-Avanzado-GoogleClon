@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Buscador Web</title>
     <link href="styleResults.css" rel="stylesheet" />
+
   </head>
   <body>
     <div class="header">
@@ -13,8 +14,9 @@
       <input type="text" id="text" />
     </div>
     <hr />
-    <div class="results">
+    <div class="results" id="results">
       <span class="total-results">Cerca de 835,000 resultados (0.58 segundos)</span>
+<!--
       <div class="notice">
         <h3>Elemento hr - HTML Quick</h3>
         <span
@@ -39,7 +41,13 @@
           tópicos diferentes o ...</span
         >
       </div>
+    -->
     </div>
-    <script src="app.js"></script>
+
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"
+  ></script>
+    <script src="results.js"></script>
+    
   </body>
 </html>
