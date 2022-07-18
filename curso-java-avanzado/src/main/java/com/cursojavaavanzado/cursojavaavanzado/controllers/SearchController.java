@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cursojavaavanzado.cursojavaavanzado.entities.WebPage;
 import com.cursojavaavanzado.cursojavaavanzado.servicies.SearchServicies;
+import com.cursojavaavanzado.cursojavaavanzado.servicies.SpiderService;
 
 @RestController
 public class SearchController {
@@ -19,10 +20,21 @@ public class SearchController {
 	@Autowired
 	private SearchServicies service; 
 	
+	@Autowired
+	private SpiderService spiderService;
+	
+	
 	//@CrossOrigin("*") //Para que no haya error de CORS, (cuando la URL especificada desde la vista no existe)
 	@RequestMapping(value = "api/search", method = RequestMethod.GET)
 	public List<WebPage> search(@RequestParam Map<String,String> params) {
 		String query = params.get("query");
 		return this.service.search(query);
 	}
+	
+	
+	@RequestMapping(value = "api/test", method = RequestMethod.GET)
+	public void search() {
+		this.spiderService.indexWebPages();
+	}
+	
 }

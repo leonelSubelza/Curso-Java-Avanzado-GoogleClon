@@ -31,4 +31,40 @@ public class SearchRepositoryImpl implements SearchRepository{
 		
 	}
 
+	@Transactional
+	@Override
+	public void save(WebPage pagina) {
+		//Hay que comparar que no exista este obj en la bd
+//		if(exist(pagina.getUrl())) {
+//			return;
+//		}
+//		
+		//Se guarda la pagina en la bd o.O o si existe lo actualiza o.O
+		this.entityManager.merge(pagina);
+	}
+
+	@Override
+	public boolean exist(String link) {
+		return getByUrl(link) != null;
+	}
+
+	@Transactional
+	@Override	
+	public WebPage getByUrl(String url) {
+		String query = "FROM WebPage WHERE url = :url";
+		List<WebPage> list = this.entityManager.createQuery(query).setParameter("url", url).getResultList();
+		return list.size() == 0 ? null : list.get(0);
+	}
+
+	//El metodo tomara los links que hayan en la bd para actualizar su contenido.Ejecutará 100 por noche
+	@Transactional
+	@Override
+	public List<WebPage> getLinksToIndex() {
+		String query = "FROM WebPage WHERE description IS NULL AND title IS NULL";
+
+		return this.entityManager.createQuery(query)
+				.setMaxResults(100)
+				.getResultList();
+	}
+	
 }
