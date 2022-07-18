@@ -9,27 +9,27 @@ jQuery(document).ready(function($){
     //escribimos en el buscador lo que busco el usuario
     buscador.value = query;
     console.log(query)
-    fetch('http://localhost:8080/api/search?query='+query)
-    .then(response => response.json())
-    .then(json => {
-        console.log(json);
+	fetch('http://localhost:8080/api/search?query=' + query)
+		.then(response => response.json())
+		.then(json => {
+			console.log(json);
 
-        /*
-	var newDiv = document.createElement("div");
-	newDiv.id = "span";
-	var respuesta = document.getElementById("respuestas");
-	respuesta.appendChild(newDiv);
-        */
+			/*
+		var newDiv = document.createElement("div");
+		newDiv.id = "span";
+		var respuesta = document.getElementById("respuestas");
+		respuesta.appendChild(newDiv);
+			*/
 
 
 
-        let contenedor = document.getElementById('results');
-        for(let resultSearch of json){
-            let notice = getResultSearch(resultSearch);
-            contenedor.innerHTML += notice;
-        }
-        //document.getElementById('results').outerHTML += html;
-    });
+			let contenedor = document.getElementById('results');
+			for (let resultSearch of json) {
+				let notice = getResultSearch(resultSearch);
+				contenedor.innerHTML += notice;
+			}
+			//document.getElementById('results').outerHTML += html;
+		});
 
 
 function getResultSearch(resultSearch){

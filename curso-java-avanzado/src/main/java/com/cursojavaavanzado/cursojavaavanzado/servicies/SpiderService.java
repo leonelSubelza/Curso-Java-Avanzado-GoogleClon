@@ -48,7 +48,7 @@ public class SpiderService {
 		});
 	}
 
-	//
+	//Procesa una pagina web. La guarda en la bd
 	private void indexPage(WebPage webPage) throws Exception{
 		//Obtenemos el contenido de la pag
 		String content = getWebContent(webPage.getUrl());
@@ -73,9 +73,12 @@ public class SpiderService {
 
 
 	public void saveLinks(String domain, String content){
+		//Obtiene todos los links que hayan en un html
 		List<String> links = getLinks(domain,content);
 		
 		//El map retorna algo, luego con el forEach es por cada valor devuelto por el map hace algo
+		
+		//Por cada link obtenido se guarda/actualiza el objeto WebPage con solo el atributo de url
 		links.stream()
 			.filter(link -> !this.searchServicies.exist(link))
 			.map(link -> new WebPage(link))
@@ -95,7 +98,7 @@ public class SpiderService {
 		
 		String[] splitHref = content.split("href:\"");
 		List<String> listHref = Arrays.asList(splitHref);
-		listHref.remove(0);
+//		listHref.remove(0);
 				
 		listHref.stream().forEach(strHref -> {
 			String[] aux = strHref.split("\"");
