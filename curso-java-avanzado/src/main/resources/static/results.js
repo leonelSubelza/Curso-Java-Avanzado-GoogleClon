@@ -1,7 +1,5 @@
 const buscador = document.getElementById('text');
 
-let variableJson = "a";
-
 jQuery(document).ready(function($) {
 	let url = document.location.href;
 
@@ -9,47 +7,20 @@ jQuery(document).ready(function($) {
 	let aux = url.split('?query=');
 	let query = aux[1];
 	//escribimos en el buscador lo que busco el usuario
-	buscador.value = query;
-	//console.log(query)
-/*
-	const request = await fetch('http://localhost:8080/api/search?query=' + query);
-
-	const json = JSON.stringify(request);
-	
-	//console.log(json);
-	console.log("anda puto");
-	console.log(json.title);
-	variableJson = json;
-	let contenedor = document.getElementById('results');
-	for (let resultSearch of json) {
-		let notice = getResultSearch(resultSearch);
-		contenedor.innerHTML += notice;
-	}
-	*/
+	buscador.value = query;	
 	console.log(query)
 	fetch('http://localhost:8080/api/search?query=' + query)
 		.then(response => response.json())
 		.then(json => {
 			console.log(json);
 
-			/*
-		var newDiv = document.createElement("div");
-		newDiv.id = "span";
-		var respuesta = document.getElementById("respuestas");
-		respuesta.appendChild(newDiv);
-			*/
-
-
-
 			let contenedor = document.getElementById('results');
 			for (let resultSearch of json) {
 				let notice = getResultSearch(resultSearch);
 				contenedor.innerHTML += notice;
 			}
-			//document.getElementById('results').outerHTML += html;
 		});
-
-
+		
 });
 
 
@@ -61,10 +32,10 @@ function getResultSearch(resultSearch) {
 	if (resultSearch.title == null || resultSearch.title == undefined) {
 		console.log("TITULO NULL");
 		titulo = resultSearch.url;
-		descr = resultSearch.url;
+		descr = '';
 	} else {
-		titulo = result.title;
-		descr = result.description;
+		titulo = resultSearch.title;
+		descr = resultSearch.description;
 	}
 
 	return `

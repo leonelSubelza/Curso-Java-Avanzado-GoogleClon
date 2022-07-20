@@ -6,12 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Buscador Web</title>
     <link href="styleResults.css" rel="stylesheet" />
-
+    <script src="https://kit.fontawesome.com/c3e1efd7de.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <div class="header">
       <img src="img/logo.png" id="logo" />
-      <input type="text" id="text" />
+      <div class="buscador">
+        <input type="text" id="text" />
+        <div class="botones">
+          <button class="borrar-texto"><i class="fas fa-times-circle"></i></button>
+          <button class="buton-search"><i class="fas fa-search"></i></button>
+        </div>
+      </div>
+      
     </div>
     <hr />
     <div class="results" id="results">
@@ -48,6 +55,6 @@
     src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"
   ></script>
     <script src="results.js"></script>
-    
+
   </body>
 </html>

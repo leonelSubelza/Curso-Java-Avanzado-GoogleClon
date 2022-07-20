@@ -17,9 +17,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -49,7 +46,7 @@ public class SpiderService {
 //		System.out.println("cantidad de links para indexar: "+linksToIndex.size());
 		
 		//Por cada link guardamos su contenido
-		linksToIndex.forEach(webPage -> {
+		linksToIndex.stream().parallel().forEach(webPage -> {
 			try {
 				indexPage(webPage);	
 			}catch(Exception e) {
@@ -130,7 +127,7 @@ public class SpiderService {
 		
 //		System.out.println("Cant de links para guardar: "+listHref1.size());
 		int cantLinks=0;
-		while(listHref1.size()>cantLinks || cantLinks<50) {
+		while(listHref1.size()>cantLinks || cantLinks<10) {
 			listHref.add(listHref1.get(cantLinks));
 			cantLinks++;
 		}
@@ -283,7 +280,6 @@ public class SpiderService {
 		return pag;
 	}
 	
-	//Metodo  wtf
 	public static String[] getLinks(String wholeThing,int n) throws MalformedURLException, IOException {
 	    List<String> strings = new ArrayList<String>();
 	    String search = "<a href=\"/url?q=";

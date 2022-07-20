@@ -8,18 +8,13 @@ body{
 .header{
     width: auto;
     padding: 0;
-    margin: 0;
-    height: 100px;
-}
-
-#logo{
-    width: 95px;
-    position: absolute;
-    left: 20px;
-    top: 25px;
+    margin: 23px 16px;
+    height: auto;
 
 }
 
+    
+/*
 #text{
     position: absolute;
     margin: 20px 0px;
@@ -37,25 +32,21 @@ body{
 
 }
 
+
 #text:focus{
     outline: none;
     box-shadow: 1px 1px 5px gray;
 }
 
-#text:hover{
-    
-    box-shadow: 1px 1px 5px gray;
-}
+*/
 
-#hrEncabezado{
-    display: block;
-}
 
 .results{
     height: 100%;
     position: absolute;
-    left: 100px;
+    left: 180px;
     width: 750px;
+    border: 1px solid black;
     
 }
 
@@ -76,4 +67,114 @@ body{
 
 .notice span{
     width: 100%;
+}
+
+
+#logo{
+    display:inline-block;
+    width: 95px;
+    top: 30px;
+    /*
+    left: 20px;
+    
+    */
+}
+
+
+
+
+.buscador{
+
+    display:inline-block;
+
+    border-radius: 25px;
+    border-color: #CCC;
+    padding-left: 15px;
+    width: 670px;
+
+    height: 48px;
+    line-height: 39px;
+
+    position: absolute;
+    
+    left: 160px;
+
+    border: transparent;
+    box-shadow: 1px 1px 3px gray;
+
+    align-content: center;
+
+}
+
+.buscador:hover{
+    
+    box-shadow: 1px 1px 5px gray;
+}
+
+#text{
+    font-size: 16px;
+    position: absolute;
+    left: 0;
+    top:20%;
+    
+    margin-left: 20px;
+    width: 80%;
+    height: 50%;
+    border:transparent;
+    
+    
+}
+
+#text:focus{
+    outline: none;
+    
+}
+
+.botones{
+    position: absolute;
+    
+    margin:0;
+    padding: 0;
+
+
+    right: 18px;
+    top: 10px;
+    width: 80px;
+    height: 50%;
+    
+    
+}
+
+.buscador:hover{
+    box-shadow: 1px 1px 5px gray;
+}
+
+.buton-search{
+
+    position: absolute;
+    right: 0;
+
+    width: auto;
+    height: 100%;
+    color: blue;
+    border: transparent;
+    
+}
+
+.buton-search:hover{
+    box-shadow: 1px 1px 5px gray;
+}
+
+.borrar-texto{
+    display: none;
+}
+
+.activo{
+    display: block;
+    position: absolute;
+    border: transparent;
+    height: 100%;
+}
+.borrar-texto:hover{
+    box-shadow: 1px 1px 5px gray;
 }
