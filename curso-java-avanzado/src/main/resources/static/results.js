@@ -1,6 +1,32 @@
 const buscador = document.getElementById('text');
 
+const botonBorrar = document.getElementById('boton-borrar');
+const botonBuscar = document.getElementById('boton-buscar');
+
 jQuery(document).ready(function($) {
+	realizarBusqueda();
+});
+
+buscador.addEventListener('keyup',() => {
+	if(buscador.value.length>0){
+		botonBorrar.classList.add('activo');
+		return;
+	}
+	if(buscador.value==''){
+		botonBorrar.classList.remove('activo');
+		return;
+	}
+	
+});
+
+botonBorrar.addEventListener('click', () => {
+	buscador.value = '';
+	botonBorrar.classList.remove('activo');
+});
+
+
+
+const realizarBusqueda = function(){
 	let url = document.location.href;
 
 	//split divide un String dependiendo de que se le pase. Ej "Hola".split("o") -> ['H','la'];
@@ -20,9 +46,7 @@ jQuery(document).ready(function($) {
 				contenedor.innerHTML += notice;
 			}
 		});
-		
-});
-
+}
 
 function getResultSearch(resultSearch) {
 	let titulo = '';
