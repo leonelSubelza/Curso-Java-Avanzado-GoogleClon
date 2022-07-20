@@ -20,13 +20,13 @@ public class WebPage {
 	@Column(name = "id")
 	private Long id;
 	
-	@Column(name = "url")
+	@Column(name = "url", length = 255)
 	private String  url;
 	
 	@Column(name = "title")
     private String title;
     
-	@Column(name = "description")
+	@Column(name = "description", length = 255)
     private String description;
 	
 	public WebPage() {

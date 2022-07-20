@@ -10,6 +10,7 @@ botonLucky.addEventListener('click', () => {
     realizarBusqueda();
 });
 
+
 function realizarBusqueda(){
     let textSearch = text.value;
     document.location.href = 'results.html?query='+textSearch;

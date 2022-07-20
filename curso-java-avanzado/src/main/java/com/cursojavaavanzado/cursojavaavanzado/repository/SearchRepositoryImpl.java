@@ -21,12 +21,14 @@ public class SearchRepositoryImpl implements SearchRepository{
 	@Transactional
 	@Override
 	public List<WebPage> search(String textSearch) {
+		System.out.println("ejejcuto metodo search");
 		//La query es escrita en sql de Hibernate, la tabla debe coincidir con el nombre de la clase
-		String query = "FROM WebPage WHERE description LIKE :textSearch";
+		String query = "FROM WebPage WHERE description LIKE :textSearch OR url LIKE :description";
 		
 		return this.entityManager
 				.createQuery(query)
 				.setParameter("textSearch","%"+textSearch+"%")
+				.setParameter("description", "%"+textSearch+"%")
 				.getResultList();
 		
 	}

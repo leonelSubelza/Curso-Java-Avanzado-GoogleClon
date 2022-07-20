@@ -25,10 +25,20 @@ public class SearchController {
 	
 	
 	//@CrossOrigin("*") //Para que no haya error de CORS, (cuando la URL especificada desde la vista no existe)
+	
 	@RequestMapping(value = "api/search", method = RequestMethod.GET)
 	public List<WebPage> search(@RequestParam Map<String,String> params) {
 		String query = params.get("query");
-		return this.service.search(query);
+		List<WebPage> pagesInBD =  this.service.search(query);
+//		if(pagesInBD == null ||pagesInBD.size()==0) {
+//			System.out.println("No hay coincidencias, se busca en la web");
+			this.spiderService.searchPagesInWeb(query);
+//		}else {
+//			System.out.println("si hay coincidencias");
+
+//			this.spiderService.indexWebPages();
+//		}
+		return this.service.search(query); 
 	}
 	
 	
