@@ -13,40 +13,11 @@ body{
 
 }
 
-    
-/*
-#text{
-    position: absolute;
-    margin: 20px 0px;
-    margin-left: 150px;
-
-    border-radius: 25px;
-    border-color: #CCC;
-    padding-left: 15px;
-    width: 670px;
-
-    height: 42px;
-    line-height: 39px;
-    border: transparent;
-    box-shadow: 1px 1px 3px gray;
-
-}
-
-
-#text:focus{
-    outline: none;
-    box-shadow: 1px 1px 5px gray;
-}
-
-*/
-
-
 .results{
     height: 100%;
     position: absolute;
     left: 180px;
     width: 750px;
-    border: 1px solid black;
     
 }
 
@@ -74,10 +45,6 @@ body{
     display:inline-block;
     width: 95px;
     top: 30px;
-    /*
-    left: 20px;
-    
-    */
 }
 
 
@@ -114,15 +81,13 @@ body{
 #text{
     font-size: 16px;
     position: absolute;
-    left: 0;
-    top:20%;
-    
-    margin-left: 20px;
-    width: 80%;
-    height: 50%;
+    left: 2px;
+    top:2px;
+    border-radius: 25px;
+    padding-left: 20px;
+    width: 96%;
+    height: 90%;
     border:transparent;
-    
-    
 }
 
 #text:focus{
@@ -153,12 +118,12 @@ body{
 
     position: absolute;
     right: 0;
-
-    width: auto;
-    height: 100%;
+    bottom:-10px;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
     color: blue;
     border: transparent;
-    
 }
 
 .buton-search:hover{
@@ -173,7 +138,14 @@ body{
     display: block;
     position: absolute;
     border: transparent;
-    height: 100%;
+    width: 40px;
+    height: 40px;
+    bottom:-10px;
+    right: 50px;
+    
+    font-size: 20px;
+    
+    
 }
 .borrar-texto:hover{
     box-shadow: 1px 1px 5px gray;

@@ -1,5 +1,5 @@
 const buscador = document.getElementById('text');
-
+const logo = document.getElementById('logo');
 const botonBorrar = document.getElementById('boton-borrar');
 const botonBuscar = document.getElementById('boton-buscar');
 
@@ -7,7 +7,7 @@ jQuery(document).ready(function($) {
 	realizarBusqueda();
 });
 
-buscador.addEventListener('keyup',() => {
+buscador.addEventListener('keydown',() => {
 	if(buscador.value.length>0){
 		botonBorrar.classList.add('activo');
 		return;
@@ -24,7 +24,15 @@ botonBorrar.addEventListener('click', () => {
 	botonBorrar.classList.remove('activo');
 });
 
+botonBuscar.addEventListener('click', () => {
+	let textSearch = text.value;
+    document.location.href = 'results.html?query='+textSearch;
 
+});
+
+logo.addEventListener('click',() => {
+	document.location.href = 'index.html';
+})
 
 const realizarBusqueda = function(){
 	let url = document.location.href;
@@ -52,9 +60,7 @@ function getResultSearch(resultSearch) {
 	let titulo = '';
 	let descr = '';
 
-	console.log(resultSearch.title);
-	if (resultSearch.title == null || resultSearch.title == undefined) {
-		console.log("TITULO NULL");
+	if (resultSearch.title == null) {
 		titulo = resultSearch.url;
 		descr = '';
 	} else {

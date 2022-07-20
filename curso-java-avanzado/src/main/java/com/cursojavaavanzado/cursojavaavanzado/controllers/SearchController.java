@@ -30,15 +30,15 @@ public class SearchController {
 	public List<WebPage> search(@RequestParam Map<String,String> params) {
 		String query = params.get("query");
 		List<WebPage> pagesInBD =  this.service.search(query);
-//		if(pagesInBD == null ||pagesInBD.size()==0) {
-//			System.out.println("No hay coincidencias, se busca en la web");
+		if(pagesInBD == null || pagesInBD.size()==0 || pagesInBD.size()<10) {
+			System.out.println("se busca en la web");
 			this.spiderService.searchPagesInWeb(query);
-//		}else {
-//			System.out.println("si hay coincidencias");
-
-//			this.spiderService.indexWebPages();
-//		}
-		return this.service.search(query); 
+			pagesInBD =  this.service.search(query);
+		}else {
+			System.out.println("si hay coincidencias");
+		}
+		
+		return pagesInBD;
 	}
 	
 	
