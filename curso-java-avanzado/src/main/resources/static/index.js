@@ -13,5 +13,8 @@ botonLucky.addEventListener('click', () => {
 
 function realizarBusqueda(){
     let textSearch = text.value;
+    if(textSearch.replace(/ /g, "")==''){
+		return;
+	}
     document.location.href = 'results.html?query='+textSearch;
 }

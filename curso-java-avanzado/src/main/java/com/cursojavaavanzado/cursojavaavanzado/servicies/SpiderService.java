@@ -98,7 +98,8 @@ public class SpiderService {
 		
 		//Por cada link obtenido se guarda/actualiza el objeto WebPage con solo el atributo de url
 		links.stream()
-			.filter(link -> !this.searchServicies.exist(link))
+			.filter(link -> !this.searchServicies.exist(link) && link.length()<100)
+			
 			.map(link -> new WebPage(link))
 			.forEach(webPage -> {
 //				System.out.println("guardando link :"+webPage.getUrl());
@@ -194,7 +195,7 @@ public class SpiderService {
 		String description = getDescription(content);
 		
 		//Guardamos la página encontrada
-		if(description.length()>=50) {
+		if(description.length()>=200) {
 			description = description.substring(0, 50);
 		}
 		webPage.setDescription(description);

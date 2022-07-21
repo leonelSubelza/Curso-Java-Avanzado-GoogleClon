@@ -3,6 +3,7 @@ body{
     font-family: arial,sans-serif;
     font-size: 14px;
     min-height: 100%;
+    overflow: auto;
 }
 
 .header{
@@ -27,7 +28,7 @@ body{
 
 .notice{
 
-    margin: 0px 0px 30px 0px;
+    margin: 10px 10px 30px 0px;
 }
 
 
@@ -149,4 +150,19 @@ body{
 }
 .borrar-texto:hover{
     box-shadow: 1px 1px 5px gray;
+}
+
+.loading-container{
+    margin: 10% auto;
+    width:20%;
+    height: 20%;
+    display: none;
+}
+
+.loading-active{
+    display: block;
+}
+
+#loading-foto{
+    width: 100%;
 }

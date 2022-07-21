@@ -2,6 +2,7 @@ const buscador = document.getElementById('text');
 const logo = document.getElementById('logo');
 const botonBorrar = document.getElementById('boton-borrar');
 const botonBuscar = document.getElementById('boton-buscar');
+const loadingContainer = document.getElementById('loading-container');
 
 jQuery(document).ready(function($) {
 	realizarBusqueda();
@@ -26,15 +27,19 @@ botonBorrar.addEventListener('click', () => {
 
 botonBuscar.addEventListener('click', () => {
 	let textSearch = text.value;
+	if(textSearch.replace(/ /g, "")==''){
+		return;
+	}
     document.location.href = 'results.html?query='+textSearch;
 
 });
 
 logo.addEventListener('click',() => {
-	document.location.href = 'index.html';
+	document.location.href = '';
 })
 
 const realizarBusqueda = function(){
+	loadingContainer.classList.add('loading-active');
 	let url = document.location.href;
 
 	//split divide un String dependiendo de que se le pase. Ej "Hola".split("o") -> ['H','la'];
@@ -47,6 +52,8 @@ const realizarBusqueda = function(){
 		.then(response => response.json())
 		.then(json => {
 			console.log(json);
+
+			loadingContainer.classList.remove('loading-active');
 
 			let contenedor = document.getElementById('results');
 			for (let resultSearch of json) {
